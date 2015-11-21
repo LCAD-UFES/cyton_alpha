@@ -18,15 +18,21 @@ Se fez o pull recentemente no PioneerModel, a versão do Git já foi atualizada 
      roslaunch cyton_alpha_gazebo tamandua_gazebo.launch
 
 Adicionado pacotes MoveIt e gazebo.
-   MoveIt: arquivos de configuração gerados pelo setup do MoveIt
+
+   MoveIt: arquivos de configuração gerados pelo setup do MoveIt.
+   
    gazebo: configuracao das transmissões, launch em desenvolvimento.
 
 Adicionado ao cyton_alpha_description:
-   xacro da estrutura
-   xacro juntando p3dx,cyton,knect(pacote pr2) e estrutura
+
+   xacro da estrutura.
+   
+   xacro juntando p3dx,cyton,knect(pacote pr2) e estrutura.
 
 ### Agradecimentos
+
 https://github.com/SD-Robot-Vision
+
 https://github.com/lara-unb
 
 
