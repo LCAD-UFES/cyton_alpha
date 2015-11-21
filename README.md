@@ -12,6 +12,21 @@ em origin mude para:
 
      <origin xyz="0.075 0 0.274" rpy="0 0 0" />
 
-Se fez o pull recentemente, a versão do Git já foi atualizada com essa alteração
+Se fez o pull recentemente no PioneerModel, a versão do Git já foi atualizada com essa alteração
 	
-	
+## Para teste
+     roslaunch cyton_alpha_gazebo tamandua_gazebo.launch
+
+Adicionado pacotes MoveIt e gazebo.
+   MoveIt: arquivos de configuração gerados pelo setup do MoveIt
+   gazebo: configuracao das transmissões, launch em desenvolvimento.
+
+Adicionado ao cyton_alpha_description:
+   xacro da estrutura
+   xacro juntando p3dx,cyton,knect(pacote pr2) e estrutura
+
+### Agradecimentos
+https://github.com/SD-Robot-Vision
+https://github.com/lara-unb
+
+
