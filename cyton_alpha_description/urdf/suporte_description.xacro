@@ -1,0 +1,99 @@
+<robot name="suporte_description">
+<!-- modificacoes do robo original -->
+  
+	<link name="box_link">
+		<mass value="0.1" />
+		<visual>
+			<origin rpy="0 0 0" xyz="0.125 0.152 0.124" />
+			<geometry>
+				<box size="0.250 0.304 0.248" />
+			</geometry>
+			<material name="gray">
+				<color rgba="0.2 0.2 0.2 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0.125 0.152 0.124" />
+			<geometry>
+				<box size="0.250 0.304 0.248" />
+			</geometry>
+		</collision>
+	</link>
+	
+	<link name="acrylic_link">
+		<mass value="0.1" />
+		<visual>
+			<origin rpy="0 0 0" xyz="0.2025 0.1785 0.0035" />
+			<geometry>
+				<box size="0.405 0.357 0.007" />
+			</geometry>
+			<material name="white_transp">
+				<color rgba="1 1 1 0.3" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0.2025 0.1785 0.0035" />
+			<geometry>
+				<box size="0.405 0.357 0.007" />
+			</geometry>
+		</collision>
+	</link>
+
+
+	<link name="kinectbaseR_link">
+		<mass value="0.1" />
+		<visual>
+			<origin rpy="0 0 0" xyz="0.04 0.07 0.04" />
+			<geometry>
+				<box size="0.08 0.14 0.08" />
+			</geometry>
+			<material name="bronze">
+				<color rgba="0.54 0.47 0.32 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0.04 0.07 0.04" />
+			<geometry>
+				<box size="0.08 0.14 0.08" />
+			</geometry>
+		</collision>
+	</link>
+	
+	<link name="kinectbaseL_link">
+		<mass value="0.1" />
+		<visual>
+			<origin rpy="0 0 0" xyz="0.04 -0.07 0.04" />
+			<geometry>
+				<box size="0.08 0.14 0.08" />
+			</geometry>
+			<material name="bronze">
+				<color rgba="0.54 0.47 0.32 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0.04 -0.07 0.04" />
+			<geometry>
+				<box size="0.08 0.14 0.08" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="box_acrylic_joint" type="fixed">
+		<origin rpy="0 0 0" xyz="-0.156 -0.026 0.248" />
+		<parent link="box_link" />
+		<child link="acrylic_link" />
+	</joint>
+
+	<joint name="acrylic_kinectbaseR_joint" type="fixed">
+		<origin rpy="0 0 -0.6" xyz="0.239 0.076 0.007" />
+		<parent link="acrylic_link" />
+		<child link="kinectbaseR_link" />
+	</joint>
+
+	<joint name="acrylic_kinectbaseL_joint" type="fixed">
+		<origin rpy="0 0 0.6" xyz="0.245 0.295 0.007" />
+		<parent link="acrylic_link" />
+		<child link="kinectbaseL_link" />
+	</joint>
+
+</robot>
