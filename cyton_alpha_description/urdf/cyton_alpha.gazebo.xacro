@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<gazebo reference="link0">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="link1">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="link2">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="link3">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+		<selfCollide>true</selfCollide>
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="link4">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+		<selfCollide>true</selfCollide>
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="link5">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+		<selfCollide>true</selfCollide>
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="link6">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+		<selfCollide>true</selfCollide>
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="link7">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+		<selfCollide>true</selfCollide>
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="claw1">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+		<selfCollide>true</selfCollide>
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="claw2">
+		<material value="Gazebo/FlatBlack"/>
+		<mu1>100</mu1>
+		<mu2>100</mu2>
+		<kp>100000000000</kp>
+		<kd>1000000000</kd>
+		<selfCollide>true</selfCollide>
+		<turnGravityOff>false</turnGravityOff> 
+	</gazebo>
+
+	<gazebo reference="shoulder_base">
+		<erp>0.1</erp>
+		<stopKd value="100000000.0" />
+		<stopKp value="100000000.0" />
+		<fudgeFactor value="0.5" />
+	</gazebo>
+
+	<gazebo reference="shoulder_pitch">
+		<erp>0.8</erp>
+	 	<cfm>0.8</cfm>
+		<stopKd value="10000000000.0" />
+		<stopKp value="10000000000.0" />
+		<fudgeFactor value="0" />
+		<provideFeedback value="true"/>
+	</gazebo>
+
+	<gazebo reference="shoulder_yaw">
+		<erp>0.1</erp>
+		<stopKd value="100000000.0" />
+		<stopKp value="100000000.0" />
+		<fudgeFactor value="7.08" />
+	</gazebo>
+
+	<gazebo reference="elbow_pitch">
+		<erp>0.1</erp>
+		<stopKd value="100000000.0" />
+		<stopKp value="100000000.0" />
+		<fudgeFactor value="0.5" />
+	</gazebo>
+
+	<gazebo reference="wrist_roll">
+		<erp>0.1</erp>
+		<stopKd value="100000000.0" />
+		<stopKp value="100000000.0" />
+		<fudgeFactor value="0.5" />
+	</gazebo>
+
+	<gazebo reference="wrist_yaw">
+		<erp>0.1</erp>
+		<stopKd value="100000000.0" />
+		<stopKp value="100000000.0" />
+		<fudgeFactor value="0.5" />
+	</gazebo>
+
+	<gazebo reference="wrist_pitch">
+		<erp>0.1</erp>
+		<stopKd value="100000000.0" />
+		<stopKp value="100000000.0" />
+		<fudgeFactor value="0.5" />
+	</gazebo>
+
+
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+		</plugin>
+	</gazebo>
+
+</robot>
