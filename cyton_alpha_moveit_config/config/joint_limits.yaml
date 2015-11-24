@@ -1,18 +1,20 @@
-# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
-# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
-# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
-  claw_left:
-    has_velocity_limits: true
-    max_velocity: 0.017
-    has_acceleration_limits: false
-    max_acceleration: 0
-  claw_right:
-    has_velocity_limits: true
-    max_velocity: 0.017
-    has_acceleration_limits: false
-    max_acceleration: 0
   elbow_pitch:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  wrist_roll:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  wrist_yaw:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  wrist_pitch:
     has_velocity_limits: true
     max_velocity: 6.2832
     has_acceleration_limits: false
@@ -28,21 +30,6 @@ joint_limits:
     has_acceleration_limits: false
     max_acceleration: 0
   shoulder_yaw:
-    has_velocity_limits: true
-    max_velocity: 6.2832
-    has_acceleration_limits: false
-    max_acceleration: 0
-  wrist_pitch:
-    has_velocity_limits: true
-    max_velocity: 6.2832
-    has_acceleration_limits: false
-    max_acceleration: 0
-  wrist_roll:
-    has_velocity_limits: true
-    max_velocity: 6.2832
-    has_acceleration_limits: false
-    max_acceleration: 0
-  wrist_yaw:
     has_velocity_limits: true
     max_velocity: 6.2832
     has_acceleration_limits: false

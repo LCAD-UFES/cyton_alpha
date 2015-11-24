@@ -1,0 +1,12 @@
+controller_list:
+  - name: arm_controller
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    joints:
+      - shoulder_base
+      - shoulder_pitch
+      - shoulder_yaw
+      - elbow_pitch
+      - wrist_roll
+      - wrist_yaw
+      - wrist_pitch

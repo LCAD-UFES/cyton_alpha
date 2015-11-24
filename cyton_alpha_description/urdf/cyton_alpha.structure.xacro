@@ -11,13 +11,15 @@
 					rpy="0 0 0" />
 				<mass
 					value="0.40583" />
-				<inertia
+				<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+				<!-- <inertia
 					ixx="0.00082976"
 					ixy="8.1234E-05"
 					ixz="-1.1485E-05"
 					iyy="0.0010372"
 					iyz="2.8245E-06"
 					izz="0.00086815" />
+				-->
 			</inertial>
 			<visual>
 				<origin
