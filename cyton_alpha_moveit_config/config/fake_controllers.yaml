@@ -1,0 +1,10 @@
+controller_list:
+  - name: fake_arm_move_group_controller
+    joints:
+      - shoulder_base
+      - shoulder_pitch
+      - shoulder_yaw
+      - elbow_pitch
+      - wrist_roll
+      - wrist_yaw
+      - wrist_pitch

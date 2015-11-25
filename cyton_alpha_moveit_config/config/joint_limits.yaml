@@ -1,0 +1,36 @@
+joint_limits:
+  elbow_pitch:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  wrist_roll:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  wrist_yaw:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  wrist_pitch:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  shoulder_base:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  shoulder_pitch:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
+  shoulder_yaw:
+    has_velocity_limits: true
+    max_velocity: 6.2832
+    has_acceleration_limits: false
+    max_acceleration: 0
