@@ -1,0 +1,21 @@
+<package>
+  <description brief="cyton">
+    cyton
+  </description>
+  <author>Lentin Joseph</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cyton</url>
+
+
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="roslib"/>
+  <depend package="std_msgs"/>
+  <depend package="rosconsole"/>
+  <depend package="actionlib"/>
+  <depend package="actionlib_msgs"/>
+
+</package>
+
+

@@ -1,0 +1,7 @@
+<launch>
+    <node name="cyton" pkg="cyton" type="actinSE_node" output="screen">
+    </node>
+    <node name="cyton_move_node" pkg="cyton" type="cyton_move_node" output="screen">
+    </node>
+
+</launch>

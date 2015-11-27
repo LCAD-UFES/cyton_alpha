@@ -1,0 +1,95 @@
+cmake_minimum_required(VERSION 2.4.6)
+project(cyton)
+
+#add_definitions(-std=c++11)
+#find_package(actionlib_msgs)
+find_package(Boost REQUIRED COMPONENTS system thread)
+find_package(catkin REQUIRED COMPONENTS roscpp std_msgs message_generation actionlib actionlib_msgs)
+
+include_directories(include ${catkin_INCLUDE_DIRS})
+
+#include(${actionlib_msgs_PACKAGE_PATH}/cmake/actionbuild.cmake)
+#genaction()
+#init()
+#add_boost_directories()
+
+#set the default path for built executables to the "bin" directory
+#set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+#set the default path for built libraries to the "lib" directory
+#set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+#include_directories
+#include_directories(${PROJECT_SOURCE_DIR}/include)
+
+#link_directories
+#link_directories(${PROJECT_SOURCE_DIR}/lib) 
+
+#include_directories
+include_directories(include ~/catkin_ws/src/cyton/include/) #$ENV{CYTON_INC})
+
+#link_directories
+link_directories(link $ENV{CYTON_LIB})
+
+#uncomment if you have defined messages
+add_message_files(
+  FILES
+  cytonActionFeedback.msg
+  cytonActionGoal.msg
+  cytonAction.msg
+  cytonActionResult.msg
+  cytonFeedback.msg
+  cytonGoal.msg
+  cytonResult.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  actionlib_msgs
+)
+
+catkin_package(CATKIN_DEPENDS message_runtime)
+
+add_executable(actinSE_node src/actinSE_node.cpp)
+add_dependencies(actinSE_node ${PROJECT_NAME}_gencpp)
+
+add_executable(guide_frame_node src/guide_frame_node.cpp)
+add_dependencies(guide_frame_node ${PROJECT_NAME}_gencpp)
+
+add_executable(cyton_move_node src/cyton_move.cpp)
+add_dependencies(cyton_move_node ${PROJECT_NAME}_gencpp)
+
+add_executable(set_home src/set_home.cpp)
+add_dependencies(set_home ${PROJECT_NAME}_gencpp)
+
+add_executable(hardware_node src/hardware_node.cpp)
+add_dependencies(hardware_node ${PROJECT_NAME}_gencpp)
+
+add_executable(send_joints src/send_joints.cpp)
+add_dependencies(send_joints ${PROJECT_NAME}_gencpp)
+
+#add_executable(subscriber_kinect_point src/subscriber_kinect_point.cpp)
+#add_dependencies(subscriber_kinect_point ${PROJECT_NAME}_gencpp)
+
+target_link_libraries(actinSE_node ecFoundCore ecActinSE ecCytonHardwareInterface ${catkin_LIBRARIES}) 
+
+#link_boost(actinSE_node thread )
+
+target_link_libraries(guide_frame_node ecFoundCore ecActinSE ${catkin_LIBRARIES})
+#link_boost(guide_frame_node thread )
+
+target_link_libraries(cyton_move_node ecFoundCore ecActinSE ecCytonHardwareInterface ${catkin_LIBRARIES}) 
+#link_boost(cyton_move_node thread )
+
+target_link_libraries(set_home ${catkin_LIBRARIES})
+#link_boost(set_home thread )
+
+target_link_libraries(hardware_node ecFoundCore ecActinSE ecCytonHardwareInterface ${catkin_LIBRARIES})
+#link_boost(hardware_node thread )
+
+target_link_libraries(send_joints ecFoundCore ecActinSE ecCytonHardwareInterface ${catkin_LIBRARIES})
+#link_boost(send_joints thread )
+
+#target_link_libraries(subscriber_kinect_point ecFoundCore ecActinSE ${catkin_LIBRARIES})
+#link_boost(subscriber_kinect_point thread )
+

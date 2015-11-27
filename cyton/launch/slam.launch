@@ -1,0 +1,67 @@
+<!-- SLAM LAUNCH -->
+<launch>
+ <arg name="robot_sim" default="false" />
+ <arg name="visual_search" default="false" />
+ <arg name="camera" default="camera" />
+ <arg name="pi" value="3.14159265359" />
+ <arg name="bvh_file" default="$(find cyton)/config/cyton.bvh" />
+ <arg name="joint_limits_file" default="$(find cyton)/config/joint_limits_cyton.txt" />
+
+  <!-- levanta o node que publica a nuvem de pontos e a imagem rgb-->
+  <!--include 
+	   file="$(find openni_launch)/launch/openni.launch">
+ 	<arg name="camera" value="$(arg camera)" />
+  </include-->
+
+  <!-- levanta o node que faz a interface do kinect e publica um ponto 3d /cyton_kinect/point -->
+  <!--node pkg="cyton_kinect" type="cyton_kinect" name="cyton_kinect"/-->
+<!--
+  <include 
+	   file="$(find cyton_kinect)/launch/cyton_kinect.launch">
+  </include>
+-->
+  <!-- gera mapa de disparidade a partir de imagem da bumblebee -->
+<!--
+  <include 
+	   file="$(find stereo)/launch/stereo.launch">
+  </include>
+-->
+  <!-- gera nuvem de pontos a partir de mapa de disparidade -->
+  <!--include 
+	   file="$(find stereo_point_cloud)/launch/stereo_point_cloud.launch">
+  </include-->
+
+  <!-- levanta o node que faz o cálculo dos ângulos das juntas a partir de um ponto 3d-->
+  <!-- inicia o Cyton Arm em modo de simulação ou modo real -->
+  <include 
+	   file="$(find cyton_kinematics)/launch/cyton_kinematics.launch">
+	<arg name="robot_sim" value="$(arg robot_sim)" />
+	<arg name="bvh_file" value="$(arg bvh_file)" />
+	<arg name="joint_limits_file" value="$(arg joint_limits_file)" />
+  </include>
+
+  <!-- tf quando o cyton e o kinect estão em cima do armário -->
+  <!--node pkg="tf" type="static_transform_publisher" name="kinect_base"
+        args="0.07 0.05 0.8 0 0 $(arg pi) /world /$(arg camera)_link 100" /-->
+  
+  <!-- tf kinect na mesa -->
+  <!--node pkg="tf" type="static_transform_publisher" name="kinect_base"
+        args="0.02 0.05 1.50 0 0 $(arg pi) /world /$(arg camera)_link 100" /-->
+
+  <!-- -->
+<!--
+  <node pkg="tf" type="static_transform_publisher" name="cyton_arm_base"
+        args="0 0 0 0 0 0 /world /cyton_arm 100" /> 
+-->
+  <!-- tf bumblebee na mesa (não alterar!!!) -->
+<!--
+  <node pkg="tf" type="static_transform_publisher" name="bumblebee_base"
+        args="0 0 1.4 0 1.57079632679 -1.57079632679 /world /stereo_point_cloud/bumblebee_point_cloud 100" />	
+-->        
+  <!--node pkg="tf" type="static_transform_publisher" name="bumblebee_base"
+        args="0 0 0 pi/2 0 pi/2 /world /stereo_point_cloud/bumblebee_point_cloud 100" /-->	 
+
+  <!-- levanta o node do visual_search_thin -->
+  <node if="$(arg visual_search)" pkg="visual_search_thin" type="visual_search_thin" name="visual_search_thin"/>
+
+</launch>
