@@ -1,2 +1,4 @@
 *.*~
 default_warehouse_mongo_db/
+.svn/
+*.kdev4
