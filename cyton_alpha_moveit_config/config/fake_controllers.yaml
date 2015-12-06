@@ -8,3 +8,7 @@ controller_list:
       - wrist_roll
       - wrist_yaw
       - wrist_pitch
+  - name: fake_gripper_controller
+    joints:
+      - claw_left
+      - claw_right

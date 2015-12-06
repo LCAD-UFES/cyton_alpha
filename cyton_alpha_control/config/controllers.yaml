@@ -2,9 +2,9 @@
   joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50  
- 
+
   # Position Controllers ---------------------------------------   
- 
+
   arm_controller:
     type: effort_controllers/JointTrajectoryController
     joints:
@@ -33,7 +33,6 @@
       wrist_pitch:
         goal: 0.1
 
- 
     gains: 
       shoulder_base: {p: 1.0, i: 0.6, d: 0.3}
       shoulder_pitch: {p: 4.0, i: 2.5, d: 1.8, i_clamp: 10}
@@ -46,8 +45,8 @@
   claw_controller:
     type: effort_controllers/JointTrajectoryController
     joints:
-       - claw_left
-       - claw_right
+     - claw_left
+     - claw_right
     constraints:
       goal_time:10.0
     gains: 

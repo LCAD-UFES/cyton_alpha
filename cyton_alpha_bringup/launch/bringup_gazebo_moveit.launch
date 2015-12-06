@@ -1,0 +1,14 @@
+<launch>
+   <!-- Load default controllers -->
+  <include file="$(find cyton_alpha_control)/launch/joint_state_controller.launch"/>
+
+  <!-- Robot state publisher - Jah esta sendo publicado pelo launch acima
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" value="50.0"/>
+    <param name="tf_prefix"         value=""/>
+  </node>-->
+
+  <!-- Motion planning -->
+  <include file="$(find cyton_alpha_moveit_config)/launch/move_group.launch"/>
+</launch>
+

@@ -1,0 +1,25 @@
+<launch>
+<!--This is to tests of grasp lauch run the robot simulation-->
+  <arg name="world" default="cyton"/> <!--change the gazebo wolrd-->
+  <arg name="robot" default="base"/>
+  <arg name="gzpose" default="-x 0 -y 0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
+  <arg name="gui" default="true"/>
+  <arg name="debug" default="false"/>
+
+  <!-- Start up world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="$(find cyton_alpha_gazebo)/worlds/$(arg world).world"/>
+    <arg name="gui" default="$(arg gui)"/>
+    <arg name="debug" default="$(arg debug)"/>
+  </include>
+
+  <!-- Spawn robot in simulation -->
+  <include file="$(find cyton_alpha_gazebo)/launch/cyton_alpha_spawn.launch">
+    <arg name="robot"  value="$(arg robot)"/>
+    <arg name="gzpose" value="$(arg gzpose)"/>
+  </include>
+
+  <!-- Bring up robot -->
+  <include file="$(find cyton_alpha_bringup)/launch/bringup_gazebo_moveit.launch"/>
+
+</launch>

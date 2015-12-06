@@ -1,0 +1,16 @@
+<launch>
+  <arg name="robot" default="base"/>
+  <arg name="gzpose" default="-x 0 -y 0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
+
+  <!-- Joint trajectory controllers -->
+  <rosparam file="$(find cyton_alpha_control)/config/joint_gazebo_controller.yaml" command="load"/>
+
+  <!-- Robot model -->
+    <!-- Load URDF into ROS param server -->
+  <param name="robot_description" command="$(find xacro)/xacro
+    '$(find cyton_alpha_description)/urdf/cyton_alpha.urdf.xacro'"/>
+
+  <!-- Spawn robot in Gazebo -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_model"
+        args="-urdf -param robot_description $(arg gzpose) -model cyton_alpha"/>
+</launch>

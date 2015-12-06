@@ -17,6 +17,5 @@
 	
 	<!-- load controller_list and controller_manager_ns -->
 	<rosparam file="$(find cyton_alpha_moveit_config)/config/cyton_alpha_controllers.yaml"/>
-
-
+	
 </launch>
