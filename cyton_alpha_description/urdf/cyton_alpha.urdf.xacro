@@ -2,8 +2,8 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cyton_alpha_description">
 	<xacro:include filename="$(find cyton_alpha_description)/urdf/cyton_alpha.structure.xacro" />
 	<xacro:include filename="$(find cyton_alpha_description)/urdf/cyton_alpha.gazebo.xacro" />
-
+	
 	<xacro:cyton_alpha name="arm"/>
-
+	
 </robot>
 

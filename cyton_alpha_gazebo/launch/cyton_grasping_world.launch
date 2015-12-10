@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find cyton_alpha_gazebo)/launch/cyton_empty_world.launch">
+    <arg name="world" default="grasping"/>
+  </include>
+</launch>
