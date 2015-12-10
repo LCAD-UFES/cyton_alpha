@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<!-- the grasp _frame need of this macro -  -->
+  <xacro:include filename="$(find cyton_alpha_description)/urdf/inertia_gripper.xacro" />
 
 	<xacro:macro name="cyton_alpha" params="name">	
 
@@ -404,6 +406,33 @@
 				</geometry>
 			</collision>
 		</link>
+
+		<!-- Grasping frame (to correct position of grasp) virtual -->
+	    <link 
+	    	name="grasping_frame">
+	      	<inertial>
+	       		<origin 
+	       			xyz="0 0 0" 
+	       			rpy="0 0 0" />
+
+	        	<mass 
+	        		value="0.0001" />
+	        	<cuboid_inertia
+	        	 	mass="0.0001" 
+	        	 	x="0.001" 
+	        	 	y="0.001" 
+	        	 	z="0.001"/>
+	      </inertial>
+	    </link>
+	    <!--joint grasp frame - this joint stay on top of link7-->
+	    <joint 
+	    	name="grasping_frame_joint" 
+	    	type="fixed">
+	      <parent 
+	      	link="link7"/>
+	      <child link="grasping_frame"/>
+	      <origin xyz="-0.02 0.05 0" rpy="-1.57 0 0"/>
+	    </joint>
 
 		<joint
 			name="shoulder_base"

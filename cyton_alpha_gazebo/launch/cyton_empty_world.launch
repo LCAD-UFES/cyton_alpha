@@ -11,6 +11,7 @@
     <arg name="world_name" default="$(find cyton_alpha_gazebo)/worlds/$(arg world).world"/>
     <arg name="gui" default="$(arg gui)"/>
     <arg name="debug" default="$(arg debug)"/>
+    <arg name="paused" value="true"/>
   </include>
 
   <!-- Spawn robot in simulation -->
