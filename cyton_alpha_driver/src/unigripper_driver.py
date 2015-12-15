@@ -28,7 +28,7 @@ class CytonAction(object):
 
   def __init__(self, name):
     self._action_name = name
-    self._names = ['shoulder_base']
+    self._names = ['claw_left', 'claw_right', 'elbow_pitch', 'shoulder_base', 'shoulder_pitch', 'shoulder_yaw', 'wrist_pitch', 'wrist_roll', 'wrist_yaw']
     self._state = JointState(name = self._names, position = [0]*len(self._names))
     # print self._state.position
     self._joint_limits = {'shoulder_base':{'min':0,'max':1.57,'vel':.4}}
