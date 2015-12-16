@@ -1,5 +1,5 @@
 <launch>
-	<include file="$(find cyton_alpha_gazebo)/launch/cyton_alpha_gazebo.launch" /> 
+	<include file="$(find cyton_alpha_driver)/launch/cyton_alpha_driver.launch" /> 
 
-	<include file="$(find cyton_alpha_control)/launch/joint_state_controller.launch" /> 
+	<include file="$(find cyton_alpha_control)/launch/joint_state_controller_no_claw.launch" /> 
 </launch>
