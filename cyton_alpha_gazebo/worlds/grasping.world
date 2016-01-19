@@ -21,9 +21,14 @@
     </include-->
 
     <!-- Lego Block -->
+
+    <include>
+      <uri>model://cinder_block_2</uri>
+      <pose>0.336738 -0.438601 0.198202 1.57 0 -3.12</pose>
+    </include>
     <include>
       <uri>model://lego</uri>
-      <pose>-0.114775 -0.206808 0.005001 0 0 0</pose>
+      <pose>0.263137 -0.31 0.401539 0 0 0</pose>
     </include>
 
     <!-- Physics settings for simulation -->
