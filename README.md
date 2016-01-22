@@ -4,7 +4,7 @@
 
     roslaunch cyton_alpha_moveit_config moveit_cyton_alpha_sim.launch
 
-###Robô real
+###Real Robot
 
 *MoveIt! and Cyton real robot
   
