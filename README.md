@@ -8,7 +8,7 @@
 
 - MoveIt! and Cyton real robot
   
-This lauch stars MoveIt!, the controllers and the action to comunicate MoveIt with cyton driver.
+This lauch starts MoveIt!, the controllers and the action server to comunicate MoveIt with cyton.
 
 ```
   roslaunch cyton_alpha_driver moveit_cyton_alpha_real.launch
