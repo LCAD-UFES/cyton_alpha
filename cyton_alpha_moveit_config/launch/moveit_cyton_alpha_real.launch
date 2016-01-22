@@ -1,0 +1,38 @@
+<launch>
+
+	<!-- By default, we do not start a database (it can be large) -->
+	<arg name="db" default="false" />
+
+	<!-- By default, we are not in debug mode -->
+	<arg name="debug" default="false" />
+
+	<node pkg="tf" type="static_transform_publisher" name="word_link0_tf_broadcaster" args="0 0 0 0 0 0 world link0 50" />
+
+	<include file="$(find cyton_alpha_moveit_config)/launch/planning_context.launch">
+		<arg name="load_robot_description" value="true"/>
+	</include>
+
+	<!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		<param name="/use_gui" value="false"/>
+	</node-->
+	
+	<!--node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" /-->
+
+	<!--
+	<arg name="kinect" default="false" />
+	<include file="$(find cyton_alpha_moveit_config)/launch/move_group_cyton_alpha.launch">
+		<arg name="kinect" value="$(arg kinect)" />
+		<arg name="allow_trajectory_execution" value="true"/>
+	</include>
+	-->
+
+	<include file="$(find cyton_alpha_moveit_config)/launch/move_group_cyton_alpha.launch">
+		<arg name="allow_trajectory_execution" value="true"/>
+	</include>
+
+	<include file="$(find cyton_alpha_moveit_config)/launch/moveit_rviz.launch">
+		<arg name="config" value="true"/>
+	</include>
+
+	<include file="$(find cyton_alpha_moveit_config)/launch/default_warehouse_db.launch" />
+</launch>
