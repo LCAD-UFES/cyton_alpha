@@ -6,7 +6,7 @@
 
 ###Real Robot
 
--MoveIt! and Cyton real robot
+- MoveIt! and Cyton real robot
   
 This lauch stars MoveIt!, the controllers and the action to comunicate MoveIt with cyton driver.
 
