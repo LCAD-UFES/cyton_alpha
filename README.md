@@ -1,10 +1,21 @@
-# cyton_alpha
+#Cyton Alpha
 
-     roslaunch cyton_alpha_bringup bringup.launch
+Status
+------
 
-    roslaunch cyton_alpha_moveit_config moveit_cyton_alpha_sim.launch
+This package is currently under development.
 
-###Real Robot
+Tutorial
+------
+
+####Simulation
+
+```
+roslaunch cyton_alpha_bringup bringup.launch
+roslaunch cyton_alpha_moveit_config moveit_cyton_alpha_sim.launch
+```
+
+####Real Robot
 
 - MoveIt! and Cyton real robot
   
@@ -14,7 +25,6 @@ This lauch starts MoveIt!, the controllers and the action server to comunicate M
   roslaunch cyton_alpha_driver moveit_cyton_alpha_real.launch
 ```
 
-Em construção...
 
 
 
