@@ -1,7 +1,7 @@
 <launch>
 
 <!--This launch file start the control names and move_group, and the action server(cyton_driver) to allow moveit control the real robot-->
-	<node name="cyton_driver" pkg="cyton_alpha_driver" type="cyton_action_sever.py" output="screen">
+	<node name="cyton_driver" pkg="cyton_alpha_driver" type="cyton_control.py" output="screen">
 	</node>
 
 	<node pkg="tf" type="static_transform_publisher" name="word_link0_tf_broadcaster" args="0 0 0 0 0 0 world link0 50" />
