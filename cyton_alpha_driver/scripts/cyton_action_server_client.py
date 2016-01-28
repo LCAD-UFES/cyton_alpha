@@ -53,16 +53,6 @@ class CytonActionServer(object):
     #self.set_servo_state(self._state.position[0]) # head_hinge
     print "@@@@@@@@@@@@@ Initial head_hinge position = ", self._state.position[0]
 
-
-  def set_servo_state(self, angle):
-    # zero angle in servo values = 4000; 90 degrees angle in servo value = 7600
-    # value in between are just an approximate...
-    one_servo_radian = (7600 - 4000) / (math.pi / 2.0)
-    servo_value = int(4000 + angle * one_servo_radian)
-    # print "@@@@@@@@@@@@@ servo_value = ", servo_value, "   angle = ", angle
-    #self.servo.setTarget(1, servo_value)
-
-
   def execute_cb(self, goal):
     rospy.loginfo('Received Trajectory')
 #     ## helper variables
@@ -106,7 +96,7 @@ class CytonActionServer(object):
       
 #end execute_cb
 if __name__ == '__main__':
-  rospy.init_node('arm_controller')
+  rospy.init_node('cyton_drive')
 
   action = CytonActionServer('/arm_controller/follow_joint_trajectory')
 
