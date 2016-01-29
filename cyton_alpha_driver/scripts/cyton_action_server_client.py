@@ -4,7 +4,7 @@ import roslib
 import rospy
 import math
 
-from cyton.msg import cytonAction, cytonGoal
+from cyton.msg import cytonAction, cytonActionGoal, cytonGoal
 
 import actionlib
 
@@ -30,7 +30,7 @@ class CytonActionServer(object):
   # create messages that are used to publish feedback/result
   _feedback = FollowJointTrajectoryFeedback()
   _result   = FollowJointTrajectoryResult()
-  cyton_goal = cytonGoal()
+  _cyton_goal = cytonGoal()
 
   def __init__(self, name):
     self._action_name = name
@@ -46,6 +46,10 @@ class CytonActionServer(object):
     #cyton action client
     self.client = actionlib.SimpleActionClient('cyton', cytonAction)
     rospy.loginfo('Cyton Action Client start.')
+    self._cyton_goal.time = 20.0;
+    self._cyton_goal.gripper_value = 0.0;
+    self._cyton_goal.gripper_rate = 0.5;
+
     
     #self.servo = Controller()
     #self.servo.setAccel(1, 0) # hinge servo
@@ -71,19 +75,24 @@ class CytonActionServer(object):
         self._as.set_preempted()
         success = False
         break
+#      for j in xrange(0,8):
+#				if j>=2:
+#      self._cyton_goal.position = [0.23, 0.2300000041, 0.23000000417232513, 0.23000000417232513, 0.23000000417232513, 0.23000000417232513, 0.23]
+      self._cyton_goal.position = [trajectory.points[i].positions[1], trajectory.points[i].positions[2], trajectory.points[i].positions[3], trajectory.points[i].positions[0], trajectory.points[i].positions[5], trajectory.points[i].positions[6], trajectory.points[i].positions[4]]
+      self._cyton_goal.rate = [0.8999999761581421, 0.8999999761581421, 0.8999999761581421, 0.8999999761581421, 0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
+#				else:
+#      		self.cyton_goal.position[j] = trajectory.points[i].positions[j]
+      self._state.position = trajectory.points[i].positions
       rospy.loginfo('wait Hardware node start...')
       self.client.wait_for_server()
       rospy.loginfo('Hardware node started.')
-      self.cyton_goal.position = trajectory.points[i].positions
-      self.cyton_goal.time = 20;
-      self.client.send_goal(self.cyton_goal)
+      self.client.send_goal(self._cyton_goal)
       finished_before_timeout = self.client.wait_for_result(rospy.Duration(1))
-      if finished_before_timeout:
-	rospy.loginfo('Joint Values send')
-	self._state.position = trajectory.points[i].positions
+      if success:
+				rospy.loginfo('Joint Values send')
       else:
-	rospy.loginfo('Joint Values not send')
-	success = False
+				rospy.loginfo('Joint Values not send')
+				success = False
       # publish the feedback
       # this step is not necessary, the sequence is computed at 1 Hz for demonstration purposes
       r.sleep()
