@@ -3,17 +3,10 @@ controller_list:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
     joints:
+      - elbow_pitch
       - shoulder_base
       - shoulder_pitch
       - shoulder_yaw
-      - elbow_pitch
+      - wrist_pitch
       - wrist_roll
       - wrist_yaw
-      - wrist_pitch
-  - name: claw_controller
-    type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
-    joints:
-      - claw_left
-      - claw_right

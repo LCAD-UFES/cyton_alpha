@@ -1,1 +1,1 @@
-controller_joint_names: [elbow_pitch,shoulder_base,shoulder_pitch,shoulder_yaw,wrist_pitch,wrist_roll,wrist_yaw]
+controller_joint_names: [elbow_pitch,shoulder_base,shoulder_pitch,shoulder_yaw,wrist_pitch,wrist_roll,wrist_yaw,claw_left,claw_right]

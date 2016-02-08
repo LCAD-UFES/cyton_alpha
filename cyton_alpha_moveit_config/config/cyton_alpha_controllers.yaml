@@ -10,3 +10,10 @@ controller_list:
       - wrist_pitch
       - wrist_roll
       - wrist_yaw
+  - name: claw_controller
+    type: FollowJointTrajectory
+    action_ns: gripper_action
+    default: true
+    joints:
+      - claw_left
+      - claw_right
