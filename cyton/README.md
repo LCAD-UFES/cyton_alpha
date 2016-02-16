@@ -31,10 +31,11 @@ Note:All paths must be system path not relative
 An example configuration is shown below
 ---------------------------------------
 
-export CYTON_INC="/home/lentin/myworks/cyton/include/"
-export CYTON_LIB="/home/lentin/myworks/cyton/lib/"
-export CYTON_BIN="/home/lentin/myworks/cyton/bin/"
-export CYTON_EE_FILE="/home/lentin/myworks/cyton/bin/guide_frame.txt"
+export CYTON_INC=~/catkin_ws/src/cyton/include/
+export CYTON_LIB=~/catkin_ws/src/cyton/lib/
+export CYTON_BIN=~/catkin_ws/src/cyton/bin/
+export CYTON_EE_FILE=~/catkin_ws/src/cyton/guide_frame.txt
+export ROS_PACKAGE_PATH=~/ros:$ROS_PACKAGE_PATH
 
 
 
